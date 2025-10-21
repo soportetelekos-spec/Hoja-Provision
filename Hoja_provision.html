@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoja de Provisión · Telekos</title>
+  <style>
+    body, h1, h2, p, label, input, textarea, select, button {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Arial", sans-serif;
+      background-color:  #0472ad;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #fafafa;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      margin-top: 30px;
+    }
+
+    /* Contenedor del formulario centrado */
+    .form-container {
+      display: flex;
+      justify-content: center; /* horizontal */
+      padding: 20px 0;
+    }
+
+    form {
+      width: 100%;
+      max-width: 900px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+      color: #004574;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 5px;
+    }
+
+    .repeatable {
+      border-top: 1px dashed #ccc;
+      margin-top: 15px;
+      padding-top: 15px;
+    }
+
+    button {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #0078b8;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin-top: 10px;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #005a85;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* Responsive padding */
+    @media (max-width: 600px) {
+      form {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+<h1>Hoja de Provisión · Telekos</h1>
+
+<div class="form-container">
+  <form action="https://formsubmit.co/soporte@telekos.com" method="POST" id="telekosForm">
+    <input type="hidden" name="_next" value="https://soportetelekos-spec.github.io/Formulario-Comercial/Hoja-Provision/Gracias.html">
+
+  <!-- Cabecera -->
+  <section>
+    <h2>Cabecera</h2>
+    <div class="grid">
+      <div>
+        <label for="tipo_alta">Seleccione tipo de alta</label>
+        <select id="tipo_alta" name="tipo_alta">
+          <option value="">Seleccione una opción</option>
+          <option value="alta">Alta nueva</option>
+          <option value="portabilidad">Portabilidad</option>
+        </select>
+
+        <br>
+        <br>
+
+        <label for="operador">Actual Operador</label>
+        <select id="operador" name="operador">
+          <option value="">Seleccione una opción</option>
+          <option value="Vodafone">Vodafone</option>
+          <option value="Yoigo">Yoigo</option>
+          <option value="Orange">Orange</option>
+          <option value="Movistar">Movistar</option>
+          <option value="jazztel">Jazztel</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="servicio_actual">Tipo de Servicio Actual</label>
+        <input type="text" id="servicio_actual" name="servicio_actual" placeholder="Ej: Telefonía IP">
+      </div>
+
+      <div>
+        <label for="servicio_destino">Servicio en Destino</label>
+        <input type="text" id="servicio_destino" name="servicio_destino" value="Centralita Virtual">
+      </div>
+
+      <div>
+        <label>¿Tiene Fibra?</label>
+        <div class="checkbox-group">
+          <label><input type="radio" name="fibra" value="si"> Sí</label>
+          <label><input type="radio" name="fibra" value="no" checked> No</label>
+        </div>
+      </div>
+
+      <div>
+        <label>Condicionado para Portar</label>
+        <div class="checkbox-group">
+          <label for="condicionado">Si</label>
+          <input type="checkbox" id="condicionado" name="condicionado" disabled>
+          
+        </div>
+      </div>
+
+      <div>
+        <label for="detalle_condiciones">Detalle Condiciones</label>
+        <textarea id="detalle_condiciones" name="detalle_condiciones" placeholder="Especificar condiciones..."></textarea>
+      </div>
+
+      <div>
+        <label for="fecha_portar">Fecha para Portar</label>
+        <input type="date" id="fecha_portar" name="fecha_portar">
+      </div>
+    </div>
+  </section>
+
+  <!-- Números dinámicos -->
+  <section>
+    <h2>Números</h2>
+    <div>
+      <label for="num_lineas">Número de líneas</label>
+      <input type="number" id="num_lineas" min="1" placeholder="Ej: 2">
+      <button type="button" id="add-numero">Generar Números</button>
+    </div>
+    <div id="numeros-container"></div>
+  </section>
+
+  <!-- Enrutamiento -->
+  <section>
+    <h2>Enrutamiento</h2>
+    <textarea name="enrutamiento" placeholder="Número total de extensiones y licencias aceptadas en la oferta..."></textarea>
+  </section>
+
+  <!-- Tarifas Planas -->
+  <section>
+    <h2>Tarifas Planas</h2>
+    <textarea name="tarifas_planas" placeholder="Aquí las tarifas planas aceptadas en la oferta..."></textarea>
+  </section>
+
+  <!-- Fecha Activar -->
+  <section>
+    <h2>Fecha para Activar</h2>
+    <input type="date" name="fecha_activar">
+  </section>
+
+  <!-- Observaciones -->
+  <section>
+    <h2>Observaciones</h2>
+    <textarea name="observaciones" placeholder="Añadir observaciones..."></textarea>
+  </section>
+
+  <!-- Extensiones / Modelos / Licencias -->
+  <section>
+    <h2>Extensiones / Modelos / Licencias</h2>
+     <h3>Extensiones / Modelos / Licencias</h3>
+    <div id="extensiones-container"></div>
+    <button type="button" id="add-extension">Añadir Extensión</button>
+  </section>
+
+  <button type="submit">Enviar</button>
+  <button type="button" id="guardar-borrador">Envio de altas nuevas</button>
+
+</form>
+</div>
+
+<footer>
+  <p>© 2025 Telekos · Todos los derechos reservados</p>
+</footer>
+
+<script>
+/* ---------- Números dinámicos ---------- */
+const addNumeroBtn = document.getElementById('add-numero');
+const numerosContainer = document.getElementById('numeros-container');
+let numeroIndex = 0;
+
+addNumeroBtn.addEventListener('click', () => {
+  const cantidad = parseInt(document.getElementById('num_lineas').value);
+  if (isNaN(cantidad) || cantidad < 1) {
+    alert('Introduce un número válido de líneas.');
+    return;
+  }
+
+  for (let i = 0; i < cantidad; i++) {
+    const bloque = document.createElement('div');
+    bloque.classList.add('repeatable', 'numero-block');
+
+    bloque.innerHTML = `
+      <div class="grid">
+        <div>
+          <label>Actual Operador</label>
+          <select name="operador_numero[]">
+            <option value="">Seleccione una opción</option>
+            <option value="alta">Alta nueva</option>
+            <option value="portabilidad">Portabilidad</option>
+          </select>
+        </div>
+        <div>
+          <label>Tipo de Servicio Actual</label>
+          <input type="text" name="servicio_actual_numero[]" placeholder="Ej: Telefonía IP">
+        </div>
+        <div>
+          <label>Servicio en Destino</label>
+          <input type="text" name="servicio_destino_numero[]" placeholder="Ej: Centralita Virtual">
+        </div>
+        <div>
+          <label>¿Tiene Fibra?</label>
+          <div class="checkbox-group">
+            <label><input type="radio" name="fibra_numero_${numeroIndex}" value="si"> Sí</label>
+            <label><input type="radio" name="fibra_numero_${numeroIndex}" value="no" checked> No</label>
+          </div>
+        </div>
+        <div>
+          <label>Dar de Alta</label>
+          <div class="checkbox-group">
+            <label><input type="radio" name="dar_alta_numero_${numeroIndex}" value="si" checked> Sí</label>
+            <label><input type="radio" name="dar_alta_numero_${numeroIndex}" value="no"> No</label>
+          </div>
+        </div>
+        <div>
+          <label>Fecha de Alta</label>
+          <input type="date" name="fecha_alta_numero[]">
+        </div>
+      </div>
+    `;
+
+    const darAltaRadios = bloque.querySelectorAll(`input[name="dar_alta_numero_${numeroIndex}"]`);
+    const fechaAltaInput = bloque.querySelector('input[name="fecha_alta_numero[]"]');
+
+    function actualizarFechaAlta() {
+      fechaAltaInput.disabled = darAltaRadios[1].checked;
+      if(fechaAltaInput.disabled) fechaAltaInput.value = '';
+    }
+
+    darAltaRadios.forEach(radio => {
+      radio.addEventListener('change', actualizarFechaAlta);
+    });
+
+    actualizarFechaAlta();
+
+    const operadorSelect = bloque.querySelector('select[name="operador_numero[]"]');
+    const fibraRadios = bloque.querySelectorAll(`input[name="fibra_numero_${numeroIndex}"]`);
+    operadorSelect.addEventListener('change', () => {
+      if (operadorSelect.value === 'alta') {
+        fibraRadios[0].checked = true;
+      } else {
+        fibraRadios[1].checked = true;
+      }
+    });
+
+    numerosContainer.appendChild(bloque);
+    numeroIndex++;
+  }
+});
+
+/* ---------- Fibra Cabecera ---------- */
+const fibraRadios = document.querySelectorAll('input[name="fibra"]');
+const condicionado = document.getElementById('condicionado');
+const form = document.querySelector('form');
+const enviarBtn = form.querySelector('button[type="submit"]');
+const operadorCabecera = document.getElementById('tipo_alta');
+const borradorBtn = document.getElementById('guardar-borrador');
+
+function actualizarEstado() {
+  const fibraSeleccionada = document.querySelector('input[name="fibra"]:checked').value;
+  if (fibraSeleccionada === 'si') {
+    condicionado.disabled = false;
+    enviarBtn.disabled = false;
+  } else {
+    condicionado.checked = false;
+    condicionado.disabled = true;
+    enviarBtn.disabled = true;
+  }
+}
+
+fibraRadios.forEach(radio => radio.addEventListener('change', () => {
+  actualizarEstado();
+  actualizarBotonBorrador();
+}));
+
+actualizarEstado();
+
+operadorCabecera.addEventListener('change', () => {
+  const condDiv = condicionado.closest('div');
+  if (operadorCabecera.value === 'alta') {
+    condDiv.style.display = 'none';
+  } else {
+    condDiv.style.display = '';
+  }
+});
+
+form.addEventListener('submit', (e) => {
+  const fibraSeleccionada = document.querySelector('input[name="fibra"]:checked').value;
+  if (fibraSeleccionada === 'no') {
+    e.preventDefault();
+    alert('No se puede enviar el formulario si no hay fibra.');
+  }
+});
+
+function actualizarBotonBorrador() {
+  const fibraSeleccionada = document.querySelector('input[name="fibra"]:checked').value;
+  borradorBtn.disabled = fibraSeleccionada !== 'no';
+}
+actualizarBotonBorrador();
+
+borradorBtn.addEventListener('click', () => {
+  alert('Botón Borrador presionado. Aquí se guardaría el formulario como borrador.');
+});
+
+/* ---------- Extensiones ---------- */
+const addExtensionBtn = document.getElementById('add-extension');
+const extensionesContainer = document.getElementById('extensiones-container');
+
+function crearBloqueExtension() {
+  const bloque = document.createElement('div');
+  bloque.classList.add('repeatable');
+  bloque.innerHTML = `
+    <div class="grid">
+      <div>
+        <label>Extensión / Modelo / Licencia</label>
+        <input type="text" name="extension_modelo[]" placeholder="Ej: Extensión 101 / Polycom VVX411">
+      </div>
+      <div>
+        <label>Fecha para Activar</label>
+        <input type="date" name="fecha_ext_activar[]">
+      </div>
+    </div>
+    <button type="button" class="remove-extension">Eliminar</button>
+  `;
+  bloque.querySelector('.remove-extension').addEventListener('click', () => {
+    bloque.remove();
+  });
+  return bloque;
+}
+
+addExtensionBtn.addEventListener('click', () => {
+  const nuevaExtension = crearBloqueExtension();
+  extensionesContainer.appendChild(nuevaExtension);
+});
+
+// Inicial: añadir un bloque vacío al cargar
+extensionesContainer.appendChild(crearBloqueExtension());
+
+
+// 🔽 Añadimos este bloque al final del script:
+
+const N8N_WEBHOOK_URL = "https://telekos-n8n.jmn4p4.easypanel.host/webhook/8967ab0a-a5fd-440b-ae8b-4c584e5f2377"; // <-- ALEX...ESTO ES LO QUE TU ME HAS DADO.
+
+// Interceptar el envío del formulario
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const fibraSeleccionada = document.querySelector('input[name="fibra"]:checked').value;
+  if (fibraSeleccionada === 'no') {
+    alert('No se puede enviar el formulario si no hay fibra.');
+    return;
+  }
+
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const res = await fetch(N8N_WEBHOOK_URL, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (res.ok) {
+      alert("✅ Formulario enviado correctamente a n8n.");
+      form.reset();
+    } else {
+      alert("⚠️ Error al enviar a n8n. Código: " + res.status);
+    }
+  } catch (error) {
+    console.error(error);
+    alert("❌ No se pudo conectar con n8n.");
+  }
+});
+
+// Interceptar el botón de borrador
+borradorBtn.addEventListener("click", async () => {
+  const fibraSeleccionada = document.querySelector('input[name="fibra"]:checked').value;
+  if (fibraSeleccionada !== 'no') {
+    alert("El borrador solo se envía cuando no hay fibra.");
+    return;
+  }
+
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+  data.estado = "borrador"; // identificador útil para n8n
+
+  try {
+    const res = await fetch(N8N_WEBHOOK_URL, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (res.ok) {
+      alert("📝 Borrador enviado correctamente a n8n.");
+    } else {
+      alert("⚠️ Error al enviar el borrador a n8n. Código: " + res.status);
+    }
+  } catch (error) {
+    console.error(error);
+    alert("❌ No se pudo conectar con n8n.");
+  }
+});
+
+
+
+</script>
+
+</body>
+</html>
